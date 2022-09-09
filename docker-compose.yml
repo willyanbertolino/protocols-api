@@ -1,0 +1,13 @@
+# create mongo image and connect with node container
+
+version: '3.9'
+services:
+  mymongo:
+    image: 'mongo'
+
+  mynode:
+    build: .
+    ports:
+      - '5000:5000'
+    depends_on:
+      - mymongo
