@@ -3,6 +3,7 @@ const router = express.Router();
 
 const {
   createProtocol,
+  resetDB,
   getAllProtocols,
   getSingleProtocol,
   updateProtocol,
@@ -16,5 +17,7 @@ router
   .get(getSingleProtocol)
   .patch(updateProtocol)
   .delete(deleteProtocol);
+
+router.route('/reset').get(resetDB);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const Protocols = require('./models/Protocols');
+const Protocols = require('../models/Protocols');
 const mockData = require('./mock');
 
 const populateDB = async () => {

@@ -1,5 +1,6 @@
 const Protocols = require('../models/Protocols');
 const CustomAPIError = require('../errors/customAPIError');
+const populate = require('../utils/populate');
 
 const createProtocol = async (req, res) => {
   const { requester, description, email } = req.body;
@@ -94,8 +95,14 @@ const deleteProtocol = async (req, res) => {
   res.status(200).json({ msg: 'Protocolo excluído com sucesso.' });
 };
 
+const resetDB = async (req, res) => {
+  await populate();
+  res.status(200).json({ msg: 'Banco de dados resetado com sucesso.' });
+};
+
 module.exports = {
   createProtocol,
+  resetDB,
   getAllProtocols,
   getSingleProtocol,
   updateProtocol,

@@ -17,7 +17,7 @@ const app = express();
 app.use(express.json());
 
 // routes
-app.use('api/v1/protocols', protocolRouter);
+app.use('/api/v1/protocols', protocolRouter);
 
 // catch error from routes
 app.use(notFoundMiddleware);
