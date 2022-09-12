@@ -43,7 +43,12 @@ A GET route,
 
 'http://localhost:5000/api/v1/protocols'
 
-thats return all documents from the collection.
+return the first 20 documents.
+Pagination is include, just enter the queries as the example below,
+
+http://localhost:5000/api/v1/protocols?page=2&max=20'
+
+where page is the number of the page and max is the max number of documents for each page.
 
 ## Get single document
 A GET route which requires the id of the document. This id is create by mongoDB when the document is created and has the format _id:631f83b44379f4fdf9a8a36f, so, to get a single document enters,
