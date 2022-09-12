@@ -3,11 +3,16 @@
 This app is a simple CRUD rest-API that allows you to create protocols, edit, delete, get all documents or single one, and reset the database.
 
 ## Test on your computer
-If you want to run this app locally, you must have docker installed in your local machine. After clonning the repository to your directory, open a command line and change to directory '<your-directory-clone-root>/Basic-CRUD-app> then run the comand:
+If you want to run this app locally, you must have docker installed in your local machine. After clonning the repository to your directory, open a command line and change to directory /your-directory-clone-root>/Basic-CRUD-app> then run the comand:
 
 ->docker-compose up -d
 
 Just a few minutes later, after docker magics (you don't have to install nodeJS or MongoDB in your local machine, docker creates those images for you with all setup needed), you can access on your browser 'http://localhost:5000/api/v1/protocols' to see all the documents on the database.
+
+Note: if you want to see the logs, run
+->docker-compose up
+instead.
+To stop the containers, press control-C.
 
 Note: when running the app for the first time, the app creates 5 documents automatically (see /utils/mockData.js). The image below shows a part of mockData returned saw from the bowser (FireFox).
 
@@ -22,8 +27,8 @@ A POST route,
 
 'http://localhost:5000/api/v1/protocols'
 
-which requires the raw data:
-
+which requires these three raw data, that must be unique:
+```
 {
   "requester": "Maria Silveira Campos",
   "description": "Solicitação de assinatura do documento 9032.7/70",
