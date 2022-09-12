@@ -73,7 +73,7 @@ A DELETE route of the form,
 
 'http://localhost:5000/api/v1/protocols/631f83b44379f4fdf9a8a36f'
 
-thas excludes the document with id 631f83b44379f4fdf9a8a36f.
+excludes the document with id 631f83b44379f4fdf9a8a36f.
 
 ## Reset DataBase
 A GET route that reset the database to original mockData only documents.
