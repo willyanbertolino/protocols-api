@@ -95,7 +95,7 @@ const deleteProtocol = async (req, res) => {
 };
 
 const resetDB = async (req, res) => {
-  //await populate();
+  await populate();
   res.status(200).json({ msg: 'Banco de dados resetado com sucesso.' });
 };
 

@@ -27,8 +27,6 @@ app.use(errorHandlerMiddleware);
 // server port
 const port = process.env.SERVER_PORT || 5000;
 const mongoURI = 'mongodb://mymongo:27017/protocols';
-//process.env.MONGO_URI ||
-//'mongodb://127.0.0.1:27017/protocols';
 
 // connect mongoDB and start the server
 const start = async () => {

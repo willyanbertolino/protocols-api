@@ -11,13 +11,12 @@ const {
 } = require('../controllers/protocols');
 
 router.route('/').post(createProtocol).get(getAllProtocols);
+router.route('/reset').get(resetDB);
 
 router
   .route('/:id')
   .get(getSingleProtocol)
   .patch(updateProtocol)
   .delete(deleteProtocol);
-
-router.route('/reset').get(resetDB);
 
 module.exports = router;
