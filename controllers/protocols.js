@@ -1,14 +1,12 @@
 const Protocols = require('../models/Protocols');
-const CustomAPIError = require('../errors/customAPIError');
+const CustomError = require('../errors');
 const populate = require('../utils/populate');
 
 const createProtocol = async (req, res) => {
   const { requester, description, email } = req.body;
 
   if (!requester || !description || !email)
-    throw new CustomAPIError.BadRequestError(
-      'Todos os campos são obrigatórios.'
-    );
+    throw new CustomError.BadRequestError('Todos os campos são obrigatórios.');
 
   const repeatedProtocol = await Protocols.findOne({
     requester,
@@ -17,7 +15,7 @@ const createProtocol = async (req, res) => {
   });
 
   if (repeatedProtocol) {
-    throw new CustomAPIError.BadRequestError(
+    throw new CustomError.BadRequestError(
       'Já existe um protocolo igual a este!'
     );
   }
@@ -48,9 +46,10 @@ const getSingleProtocol = async (req, res) => {
   const { id } = req.params;
 
   const protocol = await Protocols.findOne({ _id: id });
+  console.log('protocol:', protocol);
 
   if (!protocol) {
-    throw new CustomAPIError.BadRequestError(
+    throw new CustomError.BadRequestError(
       `Não há nenhum protocolo com este id: ${id}`
     );
   }
@@ -72,7 +71,7 @@ const updateProtocol = async (req, res) => {
   );
 
   if (!protocol) {
-    throw new CustomAPIError.BadRequestError(
+    throw new CustomError.BadRequestError(
       `Não foi possível atualizar o protocolo com id: ${id}`
     );
   }
@@ -86,7 +85,7 @@ const deleteProtocol = async (req, res) => {
   const protocol = await Protocols.findOne({ _id: id });
 
   if (!protocol) {
-    throw new CustomAPIError.BadRequestError(
+    throw new CustomError.BadRequestError(
       `Não foi possível excluir o protocolo com id: ${id}`
     );
   }
@@ -96,7 +95,7 @@ const deleteProtocol = async (req, res) => {
 };
 
 const resetDB = async (req, res) => {
-  await populate();
+  //await populate();
   res.status(200).json({ msg: 'Banco de dados resetado com sucesso.' });
 };
 

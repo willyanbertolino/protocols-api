@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('express-async-errors');
 
 // external imports
 const express = require('express');
@@ -6,8 +7,8 @@ const mongoose = require('mongoose');
 
 // internal imports
 const populate = require('./utils/populate');
-const notFoundMiddleware = require('./middlewares/notFound');
-const errorMiddleware = require('./middlewares/errorHandler');
+const notFoundMiddleware = require('./middleware/not-found');
+const errorHandlerMiddleware = require('./middleware/error-handler');
 const protocolRouter = require('./routes/protocolRoutes');
 
 // instantiate express
@@ -21,15 +22,19 @@ app.use('/api/v1/protocols', protocolRouter);
 
 // catch error from routes
 app.use(notFoundMiddleware);
-app.use(errorMiddleware);
+app.use(errorHandlerMiddleware);
 
 // server port
 const port = process.env.SERVER_PORT || 5000;
+const mongoURI = process.env.MONGO_URI;
+//'mongodb://127.0.0.1:27017/protocols';
+
+//'mongodb://mymongo:27017/protocols' ||
 
 // connect mongoDB and start the server
 const start = async () => {
   try {
-    await mongoose.connect(`mongodb://mymongo:27017/protocols`, {
+    await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
     });
     await populate();

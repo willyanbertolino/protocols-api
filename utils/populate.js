@@ -1,7 +1,7 @@
 const Protocols = require('../models/Protocols');
 const mockData = require('./mock');
 
-const populateDB = async () => {
+const populate = async () => {
   try {
     // reset database
     await Protocols.deleteMany();
@@ -14,4 +14,4 @@ const populateDB = async () => {
   }
 };
 
-module.exports = populateDB;
+module.exports = populate;
