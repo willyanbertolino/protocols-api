@@ -6,7 +6,7 @@ const protocolSchema = new mongoose.Schema(
       type: String,
       required: [true, 'O nome do requisitante é obrigatório.'],
     },
-    descrition: {
+    description: {
       type: String,
       required: [true, 'A descrição do protocolo é obrigatória.'],
     },
