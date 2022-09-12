@@ -34,6 +34,7 @@ which requires these three raw data, that must be unique:
   "description": "Solicitação de assinatura do documento 9032.7/70",
   "email": "mariasilveiracampos@email.com"
 }
+```
 
 Note: There is one more field, "status", filled by the app with default "1" value which means: to be evaluated. Timestamp is also true when created or update a document.
 
@@ -45,7 +46,7 @@ A GET route,
 thats return all documents from the collection.
 
 ## Get single document
-A GET route which requires the id of the document. This id is create by mongoDB when the doument is created and has the format _id:631f83b44379f4fdf9a8a36f, so, to get a single document enters,
+A GET route which requires the id of the document. This id is create by mongoDB when the document is created and has the format _id:631f83b44379f4fdf9a8a36f, so, to get a single document enters,
 
 'http://localhost:5000/api/v1/protocols/631f83b44379f4fdf9a8a36f'
 
