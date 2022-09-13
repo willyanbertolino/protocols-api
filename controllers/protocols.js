@@ -30,7 +30,7 @@ const createProtocol = async (req, res) => {
 
 const getAllProtocols = async (req, res) => {
   let page = Number(req.query.page);
-  let max = Number(req.query.max);
+  let max = Number(req.query.max) || 20;
   if (!page || page < 1) {
     page = 1;
   }
