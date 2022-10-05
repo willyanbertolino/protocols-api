@@ -25,7 +25,7 @@ const createProtocol = async (req, res) => {
     description,
     email,
   });
-  res.status(201).json({ protocol });
+  res.status(201).json({ success: true });
 };
 
 const getAllProtocols = async (req, res) => {
@@ -35,9 +35,9 @@ const getAllProtocols = async (req, res) => {
     page = 1;
   }
 
-  const protocols = await Protocols.find()
-    .skip(page * max)
-    .limit(max);
+  const protocols = await Protocols.find({});
+  // .skip(page * max)
+  // .limit(max);
 
   res.status(200).json({ protocols });
 };
@@ -91,7 +91,7 @@ const deleteProtocol = async (req, res) => {
   }
 
   await protocol.remove();
-  res.status(200).json({ msg: 'Protocolo excluído com sucesso.' });
+  res.status(200).json({ success: true });
 };
 
 const resetDB = async (req, res) => {

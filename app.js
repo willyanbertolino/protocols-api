@@ -4,6 +4,7 @@ require('express-async-errors');
 // external imports
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 // internal imports
 const populate = require('./utils/populate');
@@ -13,6 +14,7 @@ const protocolRouter = require('./routes/protocolRoutes');
 
 // instantiate express
 const app = express();
+app.use(cors())
 
 // json parser
 app.use(express.json());
