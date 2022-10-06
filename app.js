@@ -27,7 +27,7 @@ app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
 // server port
-const port = process.env.SERVER_PORT || 5000;
+const port = process.env.PORT || 5000;
 const mongoURI = 'mongodb://mymongo:27017/protocols';
 
 // connect mongoDB and start the server
