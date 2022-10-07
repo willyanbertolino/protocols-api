@@ -4,7 +4,11 @@ require('express-async-errors');
 // external imports
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors')
+const cors = require('cors');
+const helmet = require('helmet');
+const rateLimiter = require('express-rate-limit');
+const xss = require('xss-clean');
+const mongoSanitize = require('express-mongo-sanitize');
 
 // internal imports
 const populate = require('./utils/populate');
@@ -14,10 +18,18 @@ const protocolRouter = require('./routes/protocolRoutes');
 
 // instantiate express
 const app = express();
-app.use(cors())
 
-// json parser
+app.use(
+  rateLimiter({
+    windowMs: 15 * 60 * 1000,
+    max: 60,
+  })
+);
+app.use(cors());
+app.use(helmet());
+app.use(xss());
 app.use(express.json());
+app.use(mongoSanitize());
 
 // routes
 app.use('/api/v1/protocols', protocolRouter);
@@ -35,6 +47,7 @@ const start = async () => {
   try {
     await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
+      useUnifiedTopology: true,
     });
     await populate();
     app.listen(port, () =>
