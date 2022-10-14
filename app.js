@@ -25,7 +25,12 @@ app.use(
     max: 60,
   })
 );
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://simplereactapp.willyanhpbertolino.app.br',
+    methods: ['POST', 'GET', 'PATCH', 'DELETE'],
+  })
+);
 app.use(helmet());
 app.use(xss());
 app.use(express.json());
