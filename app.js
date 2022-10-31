@@ -27,7 +27,7 @@ app.use(
 );
 app.use(
   cors({
-    origin: 'https://simplereactapp.willyanhpbertolino.app.br',
+    origin: 'https://simplereactapi.willyanhpbertolino.app.br',
     methods: ['POST', 'GET', 'PATCH', 'DELETE'],
   })
 );
