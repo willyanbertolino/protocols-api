@@ -1,6 +1,6 @@
 # Simple CRUD Api with NodeJs and MongoDB.
 
-This app is a simple CRUD rest-API that allows you to create protocols (like a todo list), edit, delete, get all documents or single one, and reset the database. It's for demonstration purpose only and was deployed on my server in digital ocean droplet, access on 'https://basicapp.willyanhpbertolino.app.br'
+This app is a simple CRUD rest-API that allows you to create protocols (like a todo list), edit, delete, get all documents or single one, and reset the database. It's for demonstration purpose only and was deployed on my server in digital ocean droplet, access on 'https://basicapi.willyanhpbertolino.app.br'
 
 ## Test on your computer
 If you want to run this app locally, you must have docker installed in your local machine. After clonning the repository to your directory, open a command line and change to directory /your-directory-clone-root>/Basic-CRUD-app> then run the comand:
@@ -25,7 +25,7 @@ This app has the following routes:
 
 A POST route,
 
-'https://basicapp.willyanhpbertolino.app.br/api/v1/protocols'
+'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols'
 
 which requires these three raw data, that must be unique:
 ```
@@ -41,25 +41,25 @@ Note: There is one more field, "status", filled by the app with default "1" valu
 ## Get all data
 A GET route,
 
-'https://basicapp.willyanhpbertolino.app.br/api/v1/protocols'
+'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols'
 
 return the first 20 documents.
 Pagination is include, just enter the queries as the example below,
 
-'https://basicapp.willyanhpbertolino.app.br/api/v1/protocols?page=2&max=20'
+'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols?page=2&max=20'
 
 where page is the number of the page and 'max' is the max number of documents for each page.
 
 ## Get single document
 A GET route which requires the id of the document. This id is create by mongoDB when the document is created and has the format _id:631f83b44379f4fdf9a8a36f, so, to get a single document enters,
 
-'https://basicapp.willyanhpbertolino.app.br/api/v1/protocols/631f83b44379f4fdf9a8a36f'
+'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols/631f83b44379f4fdf9a8a36f'
 
 
 ## Update a protocol
 A PATCH route for a specific document with id=631f83b44379f4fdf9a8a36f, for example.
 
-'https://basicapp.willyanhpbertolino.app.br/api/v1/protocols/631f83b44379f4fdf9a8a36f'
+'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols/631f83b44379f4fdf9a8a36f'
 which requires at least one of the raw data:
 
 {
@@ -71,12 +71,12 @@ which requires at least one of the raw data:
 ## Delete a document
 A DELETE route of the form,
 
-'https://basicapp.willyanhpbertolino.app.br/api/v1/protocols/631f83b44379f4fdf9a8a36f'
+'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols/631f83b44379f4fdf9a8a36f'
 
 excludes the document with id 631f83b44379f4fdf9a8a36f.
 
 ## Reset DataBase
 A GET route that reset the database to original mockData only documents.
 
-'https://basicapp.willyanhpbertolino.app.br/api/v1/protocols/reset'
+'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols/reset'
 
