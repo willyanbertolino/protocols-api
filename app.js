@@ -27,7 +27,7 @@ app.use(
 );
 app.use(
   cors({
-    origin: 'https://simplereactapi.willyanhpbertolino.app.br',
+    origin: `${process.env.CORS_ORIGIN}`,
     methods: ['POST', 'GET', 'PATCH', 'DELETE'],
   })
 );
@@ -45,7 +45,12 @@ app.use(errorHandlerMiddleware);
 
 // server port
 const port = process.env.PORT || 5000;
-const mongoURI = 'mongodb://mymongo:27017/protocols';
+
+// Mongo Connection - development (localhost)
+const mongoURI = 'mongodb://mongodb:27017/protocols?authSource=admin';
+
+// Mongo Connection - production (personal account on mongoDb Atlas)
+// const mongoURI = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_URL}/${process.env.MONGODB_NAME}?retryWrites=true&w=majority`;
 
 // connect mongoDB and start the server
 const start = async () => {
@@ -63,5 +68,4 @@ const start = async () => {
   }
 };
 
-// Call starter function
 start();

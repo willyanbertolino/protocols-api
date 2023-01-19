@@ -1,13 +1,32 @@
-# create mongo image and connect with node container
+---
+#------- Development ---------#
 
 version: '3.9'
 services:
-  mymongo:
+  mongodb:
     image: 'mongo'
-
-  mynode:
-    build: .
+    volumes:
+      - data:/data/db
+  backend:
+    build: ./
     ports:
       - '5000:5000'
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./.env
     depends_on:
-      - mymongo
+      - mongodb
+volumes:
+  data:
+#------- Production ---------#
+
+# version: '3.9'
+# services:
+#   backend:
+#     build: .
+#     ports:
+#       - '5000:5000'
+#     env_file:
+#       - ./.env
