@@ -35,7 +35,7 @@ This app has the following routes:
 
 A POST route,
 
-'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols'
+'/api/v1/protocols'
 
 which requires these three raw data, that must be unique:
 
@@ -53,12 +53,12 @@ Note: There is one more field, "status", filled by the app with default "1" valu
 
 A GET route,
 
-'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols'
+'/api/v1/protocols'
 
 return the first 20 documents.
 Pagination is include, just enter the queries as the example below,
 
-'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols?page=2&max=20'
+'/api/v1/protocols?page=2&max=20'
 
 where page is the number of the page and 'max' is the max number of documents for each page.
 
@@ -66,13 +66,13 @@ where page is the number of the page and 'max' is the max number of documents fo
 
 A GET route which requires the id of the document. This id is create by mongoDB when the document is created and has the format \_id:631f83b44379f4fdf9a8a36f, so, to get a single document enters,
 
-'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols/631f83b44379f4fdf9a8a36f'
+'/api/v1/protocols/631f83b44379f4fdf9a8a36f'
 
 ## Update a protocol
 
 A PATCH route for a specific document with id=631f83b44379f4fdf9a8a36f, for example.
 
-'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols/631f83b44379f4fdf9a8a36f'
+'/api/v1/protocols/631f83b44379f4fdf9a8a36f'
 which requires at least one of the raw data:
 
 {
@@ -85,7 +85,7 @@ which requires at least one of the raw data:
 
 A DELETE route of the form,
 
-'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols/631f83b44379f4fdf9a8a36f'
+'/api/v1/protocols/631f83b44379f4fdf9a8a36f'
 
 excludes the document with id 631f83b44379f4fdf9a8a36f.
 
@@ -93,4 +93,4 @@ excludes the document with id 631f83b44379f4fdf9a8a36f.
 
 A GET route that reset the database to original mockData only documents.
 
-'https://basicapi.willyanhpbertolino.app.br/api/v1/protocols/reset'
+'/api/v1/protocols/reset'
