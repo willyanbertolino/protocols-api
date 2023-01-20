@@ -1,6 +1,6 @@
 # Simple CRUD Api with NodeJs, MongoDB and Docker.
 
-This app is a simple CRUD rest-API that allows you to create protocols (like a todo list), edit, delete, get all documents or single one, and reset the database. It's only for demonstration purpose and it was deployed on my server in digital ocean. You can test accessing 'https://basicapi.willyanhpbertolino.app.br'
+This app is a simple CRUD rest-API that allows you to create protocols (like a todo list), edit, delete, get all documents or single one, and reset the database. It's only for demonstration purpose and it was deployed on my server in digital ocean. You can test accessing 'https://willyanhpbertolino-simple-crud-react.netlify.app'.
 
 ## Test on your computer (localhost)
 
@@ -25,7 +25,7 @@ If you wish to deploy a similar app, first you have to set environment variables
 
 # App
 
-When you run the app for the first time, the app creates 5 items on database automatically (see /utils/mockData.js). The image below shows a part of mockData returned, saw from the browser (FireFox) when the app is started.
+When you run the app for the first time, the app creates 5 items on database automatically (see /utils/mockData.js). The image below shows a part of mockData returned, saw from the browser (FireFox) when the app is started. As it is a persistent data, if there is no data when you access or many data, press the reset button.
 
 ![image](https://user-images.githubusercontent.com/57110420/189744975-ec77a127-1a81-468d-9e4f-0a3bea01832e.png)
 
