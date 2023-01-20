@@ -19,6 +19,10 @@ After testing on localhost run:
 ->docker-compose down
 to remove the container created.
 
+Note: if you want to change the code you can run the script,
+->npm run dev
+this will start the app with nodemon since the images create by docker are statics (you have to build a new image for each change).
+
 ## Production
 
 If you wish to deploy a similar app, first you have to set environment variables as example.env file, which contains your mongodb username, password, cloud string, database name, and cors origin. Next, comment the line "const mongoURI = 'mongodb://mongodb:27017/protocols?authSource=admin'; " on app.js file and uncomment the line below which contains the const mongoURI variable. Also, switch the comments on docke-compose.yml file from development to production.
