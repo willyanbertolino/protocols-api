@@ -20,7 +20,16 @@ const createProtocol = async (req, res) => {
     );
   }
 
-  const protocol = await Protocols.create({
+  const protocolsLimit = await Protocols.count();
+  const limit = 200;
+
+  if (protocolsLimit >= limit) {
+    throw new CustomError.BadRequestError(
+      `Numero máximo de protocolos atingido - (${limit})`
+    );
+  }
+
+  await Protocols.create({
     requester,
     description,
     email,
@@ -29,24 +38,32 @@ const createProtocol = async (req, res) => {
 };
 
 const getAllProtocols = async (req, res) => {
-  let page = Number(req.query.page);
-  let max = Number(req.query.max) || 20;
+  const page = Number(req.query.page);
+  const max = 5;
   if (!page || page < 1) {
     page = 1;
   }
 
-  const protocols = await Protocols.find({});
-  // .skip(page * max)
-  // .limit(max);
+  const protrocolsNum = await Protocols.find({
+    requester: { $regex: req.query.search, $options: 'ix' },
+  }).count();
 
-  res.status(200).json({ protocols });
+  const protocols = await Protocols.find({
+    requester: { $regex: req.query.search, $options: 'ix' },
+  })
+    .sort({ _id: -1 })
+    .skip((page - 1) * max)
+    .limit(max);
+
+  const maxPage = Math.ceil(protrocolsNum / max);
+
+  res.status(200).json({ protocols, maxPage });
 };
 
 const getSingleProtocol = async (req, res) => {
   const { id } = req.params;
 
   const protocol = await Protocols.findOne({ _id: id });
-  console.log('protocol:', protocol);
 
   if (!protocol) {
     throw new CustomError.BadRequestError(
