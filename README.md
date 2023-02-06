@@ -1,6 +1,6 @@
 # Simple CRUD Api with NodeJs, MongoDB and Docker.
 
-This app is a simple CRUD rest-API that allows you to create protocols (like a todo list), edit, delete, get all documents, and reset the database. It's only for demonstration purpose and it was deployed on my server in digital ocean (also, my mongoDB cluster). You can test accessing 'https://willyanhpbertolino-simple-crud-react.netlify.app'.
+This app is a simple CRUD rest-API that allows you to create protocols (like a todo list), edit, delete, get all documents, and reset the database. It's only for demonstration purpose and it was deployed on my server in digital ocean (also, my mongoDB cluster). You can test accessing 'https://protocols.willyanhpbertolino.app.br/'.
 
 ## Test on your computer (localhost)
 
